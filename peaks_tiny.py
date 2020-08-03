@@ -32,8 +32,8 @@ def plot_peaks(
     Keyword arguments:
     time_range -- Time range (ns: Unix timestamp) in that peaks
                   are plotted (default None, tuple)
-    t_reference-- Reference time. Starttime of plotting (ns, Unix timestamp)
-                  (default None, int)
+    t_reference-- Reference time. Starttime of plotting (ns, Unix timestamp) If None
+                  start time of first peak in selection is used (default None, int)
     peak_idx   -- Index / Indecies or boolean array to select peaks to plot
                   (default None, int / list of ints / bool list with len of peaks)
     s0_color   -- Plot color of peaks (default 'gray')
@@ -61,6 +61,9 @@ def plot_peaks(
                       (endtime <= time_range[1])]
     else:
         peaks = peaks[peak_idx]
+
+    if t_reference is None:
+        t_reference = peaks[0]['time']
 
     plt.figure(figsize=figsize)
     plt.axhline(0, c='k', alpha=0.2)

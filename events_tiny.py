@@ -102,8 +102,8 @@ def area_width(
     events     -- Provided by decorator (ndarray)
 
     Keyword arguments:
-    x          -- Field name in events that is plotted on x-axis
-    y          -- Field name in events that is plotted on y-axis
+    x          -- Field name in events that is plotted on x-axis (default 's2_area', str)
+    y          -- Field name in events that is plotted on y-axis (default 's2_range_50p_area', str)
     cuts       -- Boolean array or list of indices to apply cuts to events
                   if None nothing is applied (default None)
     xbins      -- Number of bins or list of bin-edges (see np.histogram2d)
